@@ -1,0 +1,17 @@
+// Import utility modules
+@use "scss/utils/variables";
+@use "scss/utils/mixins";
+@use "scss/utils/accessibility";
+
+// Import base styles
+@use "scss/base/reset";
+@use "scss/base/typography";
+
+// Import component blocks
+@use "scss/blocks/header";
+@use "scss/blocks/nav";
+@use "scss/blocks/bio";
+@use "scss/blocks/button";
+@use "scss/blocks/card";
+@use "scss/blocks/projects";
+@use "scss/blocks/footer";

@@ -1,28 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE <html>
 
+  <!-- Mobile / Zoom / Layout -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Description for a11y/SEO -->
+  <meta name="description" content="Creative frontend developer specializing in modern web experiences. View my portfolio of React, Vue.js, and design system projects." />
 <head>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../dist/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
+  <meta charset="utf-        <div class="bio__text">
+          <h1 id="bio-title" class="bio__title">Creative Frontend Developer</h1>
+          <p class="bio__lead">
+            Hi, I'm Gladys Olomukoro! I craft beautiful, accessible, and performant web experiences that delight users and drive results. Let's build something amazing together.
+          </p>
+
+          <div class="bio__actions">
+            <a class="btn btn--primary" href="#latest-projects">View My Work</a>
+            <a class="btn btn--secondary" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+
+  <!-- Mobile / Zoom / Layout -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Description for a11y/SEO -->
+  <meta name="description" content="Responsive, accessible web developer portfolio showcasing projects and skills." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Compiled CSS (from /scss to /dist) -->
+  <link rel="stylesheet" href="../dist/main.css" />
 </head>
 
 <body id="body">
-  <header class="header">
-  </header>
-  <main id="main">
-    <section id="bio" class="bio">
-    </section>
-    <section id="latest-projects" class="latest-projects">
-    </section>
-  </main>
-  <footer class="footer">
-  </footer>
-</body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Header / Navbar -->
+  <header class="header" role="banner">
+    <div class="header__inner container">
+      <a class="header__brand" href="#top" aria-label="Home">
+        <span class="header__logo" aria-hidden="true">GO</span>
+        <span class="header__title">Gladys Olomukoro</span>
+      </a>
+
+      <button class="header__burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">
+        <span class="header__burger-bar" aria-hidden="true"></span>
+        <span class="header__burger-bar" aria-hidden="true"></span>
+        <span class="header__burger-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="#latest-projects">Projects</a></li>
+          <li class="nav__item"><a class="nav__link" href="#skills">Skills</a></li>
+          <li class="nav__item"><a class="nav__link" href="#resume">Resume</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Intro Banner -->
+    <section id="bio" class="bio" aria-labelledby="bio-title">
+      <div class="bio__bg" role="img" aria-label="Abstract seasonal background"></div>
+
+      <div class="bio__content container">
+        <div class="bio__media">
+          <!-- Use your own headshot or swap the src for a placeholder -->
+          <img class="bio__image"
+               src="img/background.jpg"
+               alt="Professional headshot of Gladys Olomukoro"
+               width="320" height="320" />
+        </div>
+
+        <div class="bio__text">
+          <h1 id="bio-title" class="bio__title">GO Solutions Web Development Portfolio</h1>
+          <p class="bio__lead">
+            I’m a front-end developer focused on building responsive, accessible, and human-centered web experiences.
+          </p>
+
+          <div class="bio__actions">
+            <a class="btn btn--primary" href="#latest-projects">View Projects</a>
+            <a class="btn btn--secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Projects -->
+    <section id="latest-projects" class="latest-projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title" class="latest-projects__title">Featured Projects</h2>
+
+        <div class="latest-projects__grid">
+          <!-- Card 1 -->
+          <article class="card" tabindex="0">
+            <div class="card__media">
+              <img src="https://images.unsplash.com/photo-1460627390041-532a28402358?w=640&h=360&fit=crop&crop=center" alt="Screenshot of E-Commerce Platform" width="640" height="360" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">E-Commerce Platform</h3>
+              <p class="card__desc">Modern React-based shopping experience with advanced filtering, real-time inventory, and seamless checkout flow.</p>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" tabindex="0">
+            <div class="card__media">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=360&fit=crop&crop=center" alt="Screenshot of Analytics Dashboard" width="640" height="360" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Analytics Dashboard</h3>
+              <p class="card__desc">Data visualization platform built with D3.js and Vue.js, featuring interactive charts and real-time updates.</p>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" tabindex="0">
+            <div class="card__media">
+              <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=640&h=360&fit=crop&crop=center" alt="Screenshot of Design System" width="640" height="360" />
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Design System</h3>
+              <p class="card__desc">Comprehensive component library with Storybook documentation, automated testing, and Figma integration.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="latest-projects__cta">
+          <a class="btn btn--accent" href="#projects">Explore All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional placeholders you can flesh out later -->
+    <section id="skills" class="sr-only" aria-hidden="true"></section>
+    <section id="resume" class="sr-only" aria-hidden="true"></section>
+    <section id="contact" class="sr-only" aria-hidden="true"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <p class="footer__copy">&copy; Gladys Olomukoro 2025</p>
+    </div>
+  </footer>
+
+<script>
+  // Burger menu toggle (accessible)
+  const burger = document.querySelector('.header__burger');
+  const nav = document.getElementById('site-nav');
+
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('nav--open');
+    document.body.classList.toggle('no-scroll', !expanded);
+  });
+
+  // Close menu when a link is clicked (keyboard/mouse)
+  nav.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    burger.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('nav--open');
+    document.body.classList.remove('no-scroll');
+  });
+
+  // Shrink header on scroll
+  const header = document.querySelector('.header');
+  const shrinkOn = 10;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > shrinkOn) header.classList.add('header--scrolled');
+    else header.classList.remove('header--scrolled');
+  });
+
+  // Respect reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReducedMotion.matches) document.documentElement.classList.add('reduced-motion');
+
+  // On-scroll reveal for project cards
+  const cards = document.querySelectorAll('.card');
+  if (!prefersReducedMotion.matches && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.2 });
+    cards.forEach((c) => io.observe(c));
+  } else {
+    // Fallback: ensure visible if no IO or reduced motion
+    cards.forEach((c) => c.classList.add('is-visible'));
+  }
+</script>
+
+</body>
 </html>

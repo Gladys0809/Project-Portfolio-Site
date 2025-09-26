@@ -1,0 +1,143 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.bio {
+  position: relative; 
+  isolation: isolate;
+  padding-block: clamp(6rem, 12vw, 10rem);
+  overflow: hidden;
+
+  &__bg {
+    position: absolute; 
+    inset: 0; 
+    z-index: -1;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+      linear-gradient(135deg, $color-bg 0%, #0f0f1a 50%, $color-surface 100%);
+    background-size: 100% 100%, 120% 120%, 80% 80%, 100% 100%;
+    will-change: background-position;
+    animation: bgDrift 20s ease-in-out infinite alternate;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 60% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 40%);
+      animation: bgDrift 25s ease-in-out infinite alternate-reverse;
+    }
+  }
+
+  &__content { 
+    display: grid; 
+    align-items: center; 
+    gap: clamp(3rem, 6vw, 5rem); 
+    grid-template-columns: 1fr;
+    text-align: center;
+    
+    @include mq(lg) {
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+  
+  &__media { 
+    display: grid; 
+    place-items: center;
+    position: relative;
+    
+    @include mq(lg) {
+      order: 2;
+    }
+  }
+  
+  &__image { 
+    width: min(320px, 80vw); 
+    height: auto; 
+    border-radius: $radius-xl; 
+    box-shadow: $shadow-3; 
+    object-fit: cover;
+    position: relative;
+    transition: transform 0.5s ease;
+    
+    &:hover {
+      transform: translateY(-8px);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: $radius-xl;
+      background: $gradient-primary;
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(20px);
+    }
+  }
+  
+  &__text {
+    @include mq(lg) {
+      order: 1;
+    }
+  }
+  
+  &__title { 
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  &__lead { 
+    color: $color-muted; 
+    max-width: 50ch;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    
+    @include mq(lg) {
+      margin: 0 0 2rem;
+    }
+  }
+  
+  &__actions { 
+    display: flex; 
+    gap: 1.5rem; 
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    @include mq(lg) {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@keyframes bgDrift {
+  0% { 
+    background-position: 0% 50%, 100% 0%, 50% 100%, 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%, 0% 100%, 100% 50%, 50% 50%;
+  }
+  50% {
+    background-position: 50% 100%, 50% 50%, 0% 0%, 100% 100%;
+  }
+  75% {
+    background-position: 0% 0%, 100% 50%, 50% 0%, 50% 100%;
+  }
+  100% { 
+    background-position: 100% 100%, 0% 0%, 100% 0%, 0% 50%;
+  }
+}
+
+/* Respect reduced motion – kill the animated background */
+.reduced-motion .bio__bg { 
+  animation: none !important; 
+  
+  &::after {
+    animation: none !important;
+  }
+}

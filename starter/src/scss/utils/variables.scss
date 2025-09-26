@@ -1,0 +1,36 @@
+/* Modern color palette with enhanced contrast and depth */
+$color-bg: #0a0a0f;          /* Deep dark blue-black */
+$color-surface: #151520;     /* Slightly lighter surface */
+$color-panel: #1a1a2e;       /* Card/panel background */
+$color-text: #ffffff;        /* Pure white for maximum contrast */
+$color-muted: #a1a1aa;       /* Neutral gray for secondary text */
+
+$brand-1: #6366f1;           /* Modern indigo primary */
+$brand-1-contrast: #ffffff;
+$brand-2: #f59e0b;           /* Vibrant amber accent */
+$brand-2-contrast: #ffffff;
+$brand-3: #10b981;           /* Emerald green for success states */
+$brand-3-contrast: #ffffff;
+
+$focus: #6366f1;             /* Indigo focus color */
+
+/* Modern border radius values */
+$radius: 12px;
+$radius-lg: 20px;
+$radius-xl: 24px;
+
+$container-max: 1200px;
+
+/* Enhanced shadows for depth */
+$shadow-1: 0 4px 20px rgba(0,0,0,.15);
+$shadow-2: 0 8px 40px rgba(0,0,0,.25);
+$shadow-3: 0 16px 60px rgba(0,0,0,.35);
+
+/* Gradient definitions */
+$gradient-primary: linear-gradient(135deg, $brand-1, #8b5cf6);
+$gradient-accent: linear-gradient(135deg, $brand-2, #f97316);
+$gradient-surface: linear-gradient(135deg, $color-surface, $color-panel);
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;

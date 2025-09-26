@@ -1,0 +1,90 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: $radius;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+
+  &:focus-visible { 
+    @include focus-ring(); 
+  }
+
+  &--primary {
+    background: linear-gradient(135deg, #4f46e5, #3730a3);
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: $shadow-2;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-3;
+      background: linear-gradient(135deg, #5b52e8, #4338ca);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &--secondary {
+    background: transparent;
+    color: $color-text;
+    border-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: $gradient-primary;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    
+    &:hover {
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateY(-2px);
+      box-shadow: $shadow-2;
+      
+      &::before {
+        opacity: 0.1;
+      }
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  &--accent {
+    background: $gradient-accent;
+    color: $brand-2-contrast;
+    box-shadow: $shadow-2;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-3;
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+
+.latest-projects {
+  padding-block: clamp(4rem, 8vw, 8rem);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(180deg, 
+      rgba(21, 21, 32, 0.3) 0%, 
+      rgba(10, 10, 15, 0.5) 50%,
+      rgba(21, 21, 32, 0.3) 100%
+    );
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &__title { 
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      width: 80px;
+      height: 4px;
+      background: $gradient-primary;
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Mobile: horizontal scroll-snap carousel */
+  &__grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(85%, 1fr);
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 0;
+    
+    /* Custom scrollbar */
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: $gradient-primary;
+      border-radius: 4px;
+    }
+  }
+
+  &__cta { 
+    margin-top: 3rem; 
+    display: grid; 
+    place-items: center; 
+  }
+}
+
+/* Each card snaps nicely on mobile */
+.latest-projects .card { 
+  scroll-snap-align: start; 
+  min-height: 100%;
+}
+
+/* Tablet → Desktop: switch to standard grid */
+@include mq(md) {
+  .latest-projects__grid {
+    overflow: visible;
+    grid-auto-flow: unset;
+    grid-auto-columns: unset;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@include mq(lg) {
+  .latest-projects__grid { 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}

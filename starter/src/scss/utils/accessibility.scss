@@ -1,0 +1,25 @@
+@use "mixins" as *;
+@use "variables" as *;
+
+/* Skip link */
+.skip-link {
+  @include sr-only;
+  &:focus {
+    position: fixed !important;
+    inset: 1rem auto auto 1rem;
+    width: auto; height: auto;
+    padding: .5rem .75rem;
+    background: $brand-1;
+    color: $brand-1-contrast;
+    border-radius: .5rem;
+    box-shadow: $shadow-1;
+    clip: auto; white-space: normal;
+  }
+}
+
+/* Respect reduced motion */
+.reduced-motion * {
+  transition: none !important;
+  animation: none !important;
+}
+
